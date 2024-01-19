@@ -1,16 +1,18 @@
 <!-- Vista que muestra la página "Acerca de" -->
 @extends('layouts.app')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+
 @section('content')
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-4 ms-auto">
-				<p class="lead">{{ $viewData["description"] }}</p>
-			</div>
-			<div class="col-lg-4 me-auto">
-				<p class="lead">{{ $viewData["author"] }}</p>
-			</div>
-		</div>
+<div class="row">
+	@foreach($viewData as $product)
+
+	<div class="col-md-6 col-lg-4 mb-2">
+		<img src="{{ asset($product["imgUrl"]) }}" class="img-fluid rounded">
+		<p> {{$product["desc"]}}</p>
 	</div>
+
+	@endforeach
+
+
+
+</div>
 @endsection
