@@ -9,11 +9,13 @@
 
 <div class="row">
     <div class="col-md-6 col-lg-4 mb-2">
-        <img src="{{ asset("/img/game.png") }}" class="img-fluid rounded">
+        <img src="{{ asset($viewData["imgUrl"]) }}" class="img-fluid rounded">
     </div>
     <div class="col-md-6 col-lg-4 mb-2">
         <div class="container">
-            <h2>{{$viewData["AAAAAAAAAAAAAAAAAA"]}}</h2>
+            <h2>{{$viewData["name"]}}</h2>
+            <br>
+            <h4>{{$viewData["desc"]}}</h4>
         </div>
     </div>
 </div>
