@@ -2,8 +2,7 @@
 @extends('layouts.app')
 
 <!-- Inyectamos el texto que contiene el título en el yield "title" -->
-@section("title", $viewData["title"])
-
+@section('subtitle', '$viewData["subtitle"]')
 <!-- Inyectamos el texto con el contenido de la página en el yield "content" -->
 @section('content')
 
