@@ -17,4 +17,6 @@ Route::get('/', "App\Http\Controllers\HomeController@index")->name("home.index")
 
 Route::get("/about", "App\Http\Controllers\HomeController@about")->name("home.about");
 
-Route::get("/products", "App\Http\Controllers\HomeController@products")->name("home.products");
+Route::get("/products", "App\Http\Controllers\ProductController@products")->name("home.products");
+
+Route::get('/{id}', 'App\Http\Controllers\ProductController@index')->name("home.product");

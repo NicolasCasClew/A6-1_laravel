@@ -12,7 +12,9 @@
         <img src="{{ asset("/img/game.png") }}" class="img-fluid rounded">
     </div>
     <div class="col-md-6 col-lg-4 mb-2">
-        <img src="{{ asset("/img/safe.png") }}" class="img-fluid rounded">
+        <div class="container">
+            <h2>{{$viewData["AAAAAAAAAAAAAAAAAA"]}}</h2>
+        </div>
     </div>
 </div>
 

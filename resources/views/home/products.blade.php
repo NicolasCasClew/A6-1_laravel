@@ -10,7 +10,7 @@
 
     <div class="col-md-6 col-lg-4 mb-2">
         <img src="{{ asset($product["imgUrl"]) }}" class="img-fluid rounded">
-        <a class="btn btn-primary" href="{{ route('home.index') }}">Comprar {{$product["nombre"]}}</a>
+        <a class="btn btn-primary" href="/{{$product['id']}}">Comprar {{$product["nombre"]}}</a>
     </div>
 
     @endforeach
