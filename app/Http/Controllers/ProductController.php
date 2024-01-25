@@ -35,11 +35,7 @@ class ProductController extends Controller
         $viewData["title"] = "Productos - Tienda Online";
 
         $viewData["id"] = $id;
-        foreach ($products as $product) {
-            if ($product["id"] == $id) {
-                //$viewData["name"] = $products[""];
-            }
-        }
+
         for ($i = 0; $i < count($products); $i++) {
             if ($products[$i]["id"] == $id) {
                 $viewData["name"] = $products[$i]["nombre"];
