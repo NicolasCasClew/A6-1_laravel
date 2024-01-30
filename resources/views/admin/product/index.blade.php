@@ -7,72 +7,60 @@
     </div>
     <div class="card-body">
 
-        <form method="POST" action="">
-            @csrf
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Nombre:</label>
-                        <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="name" value="" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Precio:</label>
-                        <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="price" value="" type="number" class="form-control">
-                        </div>
-                    </div>
-                </div>
+        <form method="POST" action={{route('admin.product.store')>
+      @csrf
+      <div class="row">
+        <div class="col">
+          <div class="mb-3 row">
+            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Nombre:</label>
+            <div class="col-lg-10 col-md-6 col-sm-12">
+              <input name="name" value="" type="text" class="form-control">
             </div>
-            <div class="mb-3">
-                <label class="form-label">Descripción</label>
-                <textarea class="form-control" name="description" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3 row">
+            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Precio:</label>
+            <div class="col-lg-10 col-md-6 col-sm-12">
+              <input name="price" value="" type="number" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea class="form-control" name="description" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
 </div>
 
 <div class="card">
-    <div class="card-header">
-        Mantenimiento de productos
-    </div>
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 
-
+  <div class="card-header">
+    Mantenimiento de productos
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
         @foreach($viewData["products"] as $product)
-
-    <div class="col-md-6 col-lg-4 mb-2">
-        <img src="{{ asset($product["url"]) }}" class="img-fluid rounded">
-        <a class="btn btn-primary" href="{{route('home.product',$product['id'])}}">Comprar {{$product["nombre"]}}</a>
-    </div>
-
-    @endforeach
-
-        -->
-                @foreach($viewData["products"] as $product)
-                <tr>
-                    <td>{{$product['id']}}</td>
-                    <td>{{$product['nombre']}}</td>
-                    <td><a href="#">Editar</a></td>
-                    <td><a href="#">Eliminar</a></td>
-                </tr>
-                @endforeach
+        <tr>
+          <td>{{$product['id']}}</td>
+            <td>{{$product['nombre']}}</td>
+            <td><a href="#">Editar</a></td>
+            <td><a href="#">Eliminar</a></td>
+            </tr>
+            @endforeach
             </tbody>
-        </table>
+            </table>
     </div>
 </div>
 @endsection
