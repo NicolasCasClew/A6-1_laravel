@@ -23,7 +23,7 @@ class AdminProductController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|unique:products,nombre|max:255',
-            'price' => 'required|integer',
+            'price' => 'required|integer|gt:0',
             'description' => 'required|max:1000',
         ]);
 
