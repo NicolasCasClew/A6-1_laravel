@@ -2,12 +2,12 @@
 @section('title', $viewData["title"])
 @section('content')
 <div class="card mb-4">
-    <div class="card-header">
-        Crear producto
-    </div>
-    <div class="card-body">
+  <div class="card-header">
+    Crear producto
+  </div>
+  <div class="card-body">
 
-        <form method="POST" action={{route('admin.product.store')>
+    <form method="POST" action={{route('admin.product.store')}}>
       @csrf
       <div class="row">
         <div class="col">
@@ -36,6 +36,16 @@
   </div>
 </div>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <div class="card">
   <div class="card-header">
     Mantenimiento de productos
@@ -54,13 +64,13 @@
         @foreach($viewData["products"] as $product)
         <tr>
           <td>{{$product['id']}}</td>
-            <td>{{$product['nombre']}}</td>
-            <td><a href="#">Editar</a></td>
-            <td><a href="#">Eliminar</a></td>
-            </tr>
-            @endforeach
-            </tbody>
-            </table>
-    </div>
+          <td>{{$product['nombre']}}</td>
+          <td><a href="#">Editar</a></td>
+          <td><a href="#">Eliminar</a></td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 </div>
 @endsection

@@ -18,9 +18,22 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Products - Online Store";
+
         $validated = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+            'name' => 'required|unique:products,nombre|max:255',
+            'price' => 'required|integer',
+            'description' => 'required|max:1000',
         ]);
+
+        $newObject = new Product;
+        $newObject->nombre = $request->input('name');
+        $newObject->precio = $request->input('price');
+        $newObject->descripcion = $request->input('description');
+        $newObject->save();
+
+        $viewData["products"] = Product::all();
+        return view('admin.product.index')->with("viewData", $viewData);
     }
 }
