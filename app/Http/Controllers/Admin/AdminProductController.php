@@ -27,6 +27,7 @@ class AdminProductController extends Controller
             'description' => 'required|max:1000',
         ]);
 
+        //test
         $newObject = new Product;
         $newObject->nombre = $request->input('name');
         $newObject->precio = $request->input('price');
