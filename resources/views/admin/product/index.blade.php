@@ -27,6 +27,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mb-3 row">
+                <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Imagen:</label>
+                <div class="col-lg-10 col-md-6 col-sm-12">
+                    <input name="img" value="" type="file" class="form-control">
+                </div>
+            </div>
+
             <div class="mb-3">
                 <label class="form-label">Descripción</label>
                 <textarea class="form-control" name="description" rows="3"></textarea>
