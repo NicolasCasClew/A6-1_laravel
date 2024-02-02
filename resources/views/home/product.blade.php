@@ -13,9 +13,9 @@
     </div>
     <div class="col-md-6 col-lg-4 mb-2">
         <div class="container">
-            <h2>{{$viewData["name"]}}</h2>
+            <h1>{{$viewData["name"]}}</h1>
             <br>
-            <h4>{{$viewData["price"]}} £</h4>
+            <h2>{{$viewData["price"]}} £</h2>
             <br>
             <h4>{{$viewData["desc"]}}</h4>
         </div>
