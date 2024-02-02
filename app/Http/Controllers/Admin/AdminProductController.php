@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class AdminProductController extends Controller
 {
@@ -42,8 +44,8 @@ class AdminProductController extends Controller
         $lastInsertedId = $newObject->id;
         if ($request->hasFile("img")) {
             $fileEx = $lastInsertedId . "." . $request->file("img")->extension();
-
-            Product::where('id', $lastInsertedId)->update(array('url' => $fileEx));
+            Storage::disk('public')->put($fileEx, file_get_contents($request->file('img')->getRealPath())); //  
+            Product::where('id', $lastInsertedId)->update(array('url' => "/storage/" . $fileEx));
         }
 
 
