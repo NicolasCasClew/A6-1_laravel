@@ -37,6 +37,7 @@ class ProductController extends Controller
 
         $viewData["id"] = $id;
         $viewData["name"] = $products["nombre"];
+        $viewData["price"] = $products["precio"];
         $viewData["desc"] = $products["descripcion"];
         $viewData["url"] = $products["url"];
 

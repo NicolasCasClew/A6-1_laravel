@@ -15,6 +15,8 @@
         <div class="container">
             <h2>{{$viewData["name"]}}</h2>
             <br>
+            <h4>{{$viewData["price"]}} £</h4>
+            <br>
             <h4>{{$viewData["desc"]}}</h4>
         </div>
     </div>
