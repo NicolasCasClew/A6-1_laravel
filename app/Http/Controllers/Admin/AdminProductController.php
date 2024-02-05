@@ -55,6 +55,7 @@ class AdminProductController extends Controller
 
         Storage::disk('public')->delete(basename($url));
         Product::destroy($id);
+
         return back()->withInput();
     }
 }
