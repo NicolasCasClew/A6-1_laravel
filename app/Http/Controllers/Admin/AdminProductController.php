@@ -29,6 +29,7 @@ class AdminProductController extends Controller
             'name' => 'required|unique:products,nombre|max:255',
             'price' => 'required|integer|gt:0',
             'description' => 'required|max:1000',
+            'image' => 'required',
         ]);
 
         //test
@@ -50,6 +51,9 @@ class AdminProductController extends Controller
 
     public function destroy($id)
     {
+        $url = Product::where('id', $id)->first()->url;
+
+        Storage::disk('public')->delete(basename($url));
         Product::destroy($id);
         return back()->withInput();
     }
