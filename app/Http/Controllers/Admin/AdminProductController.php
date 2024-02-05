@@ -20,8 +20,6 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
-        $viewData = [];
-        $viewData["title"] = "Admin Page - Products - Online Store";
 
         if ($request->hasFile("img")) {
             $fileEx = $request->file("img")->extension();
@@ -40,7 +38,6 @@ class AdminProductController extends Controller
         $newObject->descripcion = $request->input('description');
         $newObject->save();
 
-        //Product::orderBy('id', 'desc')->first();
         $lastInsertedId = $newObject->id;
         if ($request->hasFile("img")) {
             $fileEx = $lastInsertedId . "." . $request->file("img")->extension();
@@ -48,9 +45,12 @@ class AdminProductController extends Controller
             Product::where('id', $lastInsertedId)->update(array('url' => "/storage/" . $fileEx));
         }
 
+        return back()->withInput();
+    }
 
-
-        $viewData["products"] = Product::all();
-        return view('admin.product.index')->with("viewData", $viewData);
+    public function destroy($id)
+    {
+        Product::destroy($id);
+        return back()->withInput();
     }
 }

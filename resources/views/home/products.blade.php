@@ -9,7 +9,7 @@
     @foreach($viewData["products"] as $product)
 
     <div class="col-md-6 col-lg-4 mb-2">
-        <img src="{{ asset($product["url"]) }}" class="img-fluid rounded">
+        <img src="{{ asset($product['url']) }}" class="img-fluid rounded">
         <a class="btn btn-primary" href="{{route('home.product',$product['id'])}}">Comprar {{$product["nombre"]}}</a>
     </div>
 
