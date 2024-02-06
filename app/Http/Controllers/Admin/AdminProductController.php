@@ -58,4 +58,12 @@ class AdminProductController extends Controller
 
         return back()->withInput();
     }
+
+    public function edit()
+    {
+    }
+
+    public function update()
+    {
+    }
 }
