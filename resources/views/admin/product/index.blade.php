@@ -77,7 +77,7 @@
                     <form action="{{route('admin.product.edit', $product['id'])}}" method="POST">
                         @method('GET')
                         @csrf
-                        <td><a href="#">Editar</a>
+                        <td>
                             <button type="submit" class="link-secondary">EDITAR</button>
                         </td>
                     </form>
